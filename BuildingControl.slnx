@@ -1,3 +1,5 @@
 <Solution>
+  <Project Path="BuildingControl.Application/BuildingControl.Application.csproj" />
   <Project Path="BuildingControl.ConsoleUI/BuildingControl.ConsoleUI.csproj" />
+  <Project Path="BuildingControl.Domain/BuildingControl.Domain.csproj" />
 </Solution>
