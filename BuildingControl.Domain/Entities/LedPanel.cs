@@ -22,6 +22,7 @@ namespace BuildingControl.Domain.Entities
             if (Message == newMessage) return;
 
             Message = newMessage;
+            OnChanged();
         }
 
         public override string GetCurrentState()

@@ -24,6 +24,7 @@ namespace BuildingControl.Domain.Entities
             if (Sound == newSound) return;
 
             Sound = newSound;
+            OnChanged();
         }
 
         public void SetVolume(double newVolume)
@@ -33,6 +34,7 @@ namespace BuildingControl.Domain.Entities
             if (Volume == newVolume) return;
 
             Volume = newVolume;
+            OnChanged();
         }
 
         public override string GetCurrentState()

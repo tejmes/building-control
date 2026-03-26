@@ -1,4 +1,5 @@
 ﻿using BuildingControl.Domain.Enums;
+using BuildingControl.Domain.Events;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -11,6 +12,8 @@ namespace BuildingControl.Domain.Entities
         public abstract DeviceType Type { get; }
         public string Id { get; }
         public string Name { get; private set; }
+
+        public event EventHandler<DeviceChangedEventArgs>? Changed;
 
         protected Device(string id, string name)
         {
@@ -29,6 +32,12 @@ namespace BuildingControl.Domain.Entities
             if (Name == newName) return;
 
             Name = newName;
+            OnChanged();
+        }
+
+        protected void OnChanged()
+        {
+            Changed?.Invoke(this, new DeviceChangedEventArgs(this));
         }
 
         public abstract string GetCurrentState();

@@ -12,6 +12,8 @@ namespace BuildingControl.Domain.Entities
 
         public CardReader(string id, string name, string accessCardNumber = "") : base(id, name)
         {
+            AccessCardNumber = "";
+
             SetAccessCardNumber(accessCardNumber);
         }
 
@@ -24,6 +26,7 @@ namespace BuildingControl.Domain.Entities
             if (AccessCardNumber == newAccessCardNumberReversed) return;
 
             AccessCardNumber = newAccessCardNumberReversed;
+            OnChanged();
         }
 
         public void ValidateAccessCardNumber(string newAccessCardNumber)

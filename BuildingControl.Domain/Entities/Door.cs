@@ -47,6 +47,7 @@ namespace BuildingControl.Domain.Entities
             if (newState == State) return;
 
             State = newState;
+            OnChanged();
         }
 
         public override string GetCurrentState()
